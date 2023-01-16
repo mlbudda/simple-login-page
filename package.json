@@ -1,0 +1,9 @@
+{
+  "name": "simple-login-page",
+  "version": "1.0.0",
+  "description": "A very simple login page with input error checking",
+  "main": "index.js",
+  "author": "mlbudda",
+  "license": "MIT",
+  "private": false
+}

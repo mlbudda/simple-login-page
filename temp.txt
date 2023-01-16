@@ -1,0 +1,134 @@
+
+
+
+Running react from scratch:
+
+1st step (project space):
+ - yarn init (Initialize directory)
+ - git init (create source control)
+ - add .gitignore and node_modules
+
+
+ 2nd step (babel):
+
+Add these below as development dependencies:
+  - yarn add -D @babel/core
+  - yarn add -D @babel/cli (running babel from terminal)
+  - yarn add -D @babel/preset-env (transform all code to legacy code)
+  - yarn add -D @babel/preset-react (convert all jsx files to normal js)
+
+one command:
+ yarn add -D @babel/core @babel/cli @babel/preset-env @babel/preset-react
+
+make .babelrc configuration file and enable env and react plugins
+
+.babelrc:
+
+{
+    "presets": ["@babel/presets-env", "@babel/presets-react"]
+}
+
+3rd step (Webpack):
+
+Add as devDependecies:
+
+ - yarn add -D webpack (Main module)
+ - yarn add -D webpack-cli (terminal support)
+ - yarn add -D babel-loader (Load babel)
+ - yarn add -D css-loader (load css)
+ - yarn add -D style-loader (load )
+ - yarn add -D webpack-dev-server (development server)
+
+one command:
+ yarn add -D webpack webpack-cli babel-loader css-loader style-loader webpack-dev-server
+
+ make webpack.config.js
+
+const path = require("path");
+
+ module.exports = {
+    mode: "development",
+    entry: "./src/index.js",
+    devServer: {
+        static: './dist',
+    },
+    output: {
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist"),
+    },
+    rules: [
+        {
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: "babel-loader",
+                options: {
+                    presets: ["@babel/preset-env"]
+                }
+            }
+        }
+    ]
+ }
+
+
+4th step (add react):
+
+Add as normal dependencies:
+- yarn add react
+- yarn add react-dom
+
+
+5th step (add Script to run and build project):
+
+to package.json:
+
+{
+    "scripts": {
+        "start": "webpack serve --open",
+        "build": "webpack"
+    }
+}
+
+
+6th step (Create file structure)
+
+ directory should look like this:
+
+ |- package.json
+ |- package-lock.json
+ |- webpack-config.js
+ |- /dist
+    |- main.js
+    |- index.html
+|- /src
+    |- index.js
+|- /node_modules
+
+
+|- index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <React.StrictMode>
+        <p>Hello World!</p>
+    </React.StrictMode>
+);
+
+
+|- index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./main.js"></script>
+  </body>
+</html>

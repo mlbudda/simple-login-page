@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(269.87deg, rgba(32, 0, 160, 0.83) 0.11%, rgba(0, 178, 255, 0.62) 239.36%);
+}
+
+button {
+    font-size: 1.8em;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    /* font-size: calc(1rem + 1vw); */
+    font-size: 1.8em;
+    font-weight:bolder;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100vh;
+
+}
+
+.container {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: #F9F9F9;
+    padding: 1.3vw;
+    width: 400px;
+    padding-top: 3em;;
+    box-shadow: 2px 2px 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+@media (max-width: 400px) {
+    .container {
+        width: 99vw;
+    }
+}
+
+.top-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.top-section .login-btn {
+    padding: 0.2em;
+    grid-column: 1;
+    width: 140px;
+    height: 2em;
+    background: #56CCF2;
+    border-radius: 8px;
+    /* border: 1px; */
+
+}
+.top-section p {
+    grid-column: 2;
+    justify-self: center;
+    font-size: calc(1.2rem + 0.5vw);
+    padding: 0.1em; 
+}
+
+.top-section .signup-btn {
+    grid-column: 3;
+    width: 140px;
+    height: 2em;
+    background: #E0E0E0;
+    border-radius: 8px;
+    /* border: 0; */
+}
+
+.input-section {
+    display: grid;
+    padding-top: 1.5em;
+}
+
+.input-section h1 {
+    justify-self: center;
+}
+
+.input-section input {
+    height: 3em;
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: 1.5em;
+}
+
+.input-section a {
+    margin-top: 0.5em;
+}
+
+.input-section .form-login-btn {
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+    background: #E0E0E0;
+    border-radius: 8px;
+    height: 2em;
+    padding: 0.2em;
+}
+button.disabled {
+    border: 0;
+}
